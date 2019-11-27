@@ -13,6 +13,7 @@ Plug 'mattn/emmet-vim' "html emmet
 Plug 'haya14busa/incsearch.vim' "incremental search
 Plug 'christoomey/vim-tmux-navigator' "integration with tmux
 Plug 'ctrlpvim/ctrlp.vim' "Fuzzy find files
+Plug 'zivyangll/git-blame.vim' "Git blame
 
 call plug#end()
 
@@ -84,6 +85,7 @@ map g/ <Plug>(incsearch-stay)
 map <leader>tn :tabnew<CR>
 map <leader>ty :tabnext<CR>
 map <leader>tr :tabprevious<CR>
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile "Enable :Prettier command
 command! FormatJSON :execute '%!python -m json.tool' | w  

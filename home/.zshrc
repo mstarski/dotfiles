@@ -18,9 +18,6 @@ export PATH=$PATH:/home/michals/.gem/ruby/2.6.0/bin
 # Add Scripts dir to the PATH variable
 export PATH=$PATH:/home/michals/Desktop/Scripts
 
-# Puts cowsay on init
-echo "Hej przystojniaku" | cowsay | lolcat 
-
 # Disable loading ranger's default config
 export RANGER_LOAD_DEFAULT_RC="false"
 
