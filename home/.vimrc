@@ -12,8 +12,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "Markdow
 Plug 'mattn/emmet-vim' "html emmet
 Plug 'haya14busa/incsearch.vim' "incremental search
 Plug 'christoomey/vim-tmux-navigator' "integration with tmux
-Plug 'ctrlpvim/ctrlp.vim' "Fuzzy find files
 Plug 'zivyangll/git-blame.vim' "Git blame
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -22,7 +24,11 @@ syntax on
 let g:javascript_plugin_jsdoc = 1 "Enables syntax highlighting for JSDocs
 let g:ale_sign_error = '❌' "Linter signs for error and warnings 
 let g:ale_sign_warning = '⚠️'
-colorscheme onedark "Load onedark scheme
+"colorscheme onedark "Load onedark scheme
+
+colorscheme gruvbox "Load gruvbox theme
+set background=light
+
 set relativenumber "Sets relative line numbers
 "Ale config
 let g:ale_linters = {
@@ -45,8 +51,6 @@ let g:closetag_regions = {
     \ } 
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
 let g:user_emmet_leader_key=',' "trigger emmet on double ,, click
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
 
 " :h g:incsearch#auto_nohlsearch
 set hlsearch
@@ -61,9 +65,6 @@ map g# <Plug>(incsearch-nohl-g#)
 "Keymap
 nmap <silent> [c <Plug>(ale_previous_wrap)
 nmap <silent> ]c <Plug>(ale_next_wrap) 
-noremap <leader>f :Files ~<CR> 
-noremap <leader>[ :Buffers<CR>
-noremap <leader>] :History<CR>
 
 " Braces completion
 inoremap " ""<left>
@@ -86,9 +87,18 @@ map <leader>tn :tabnew<CR>
 map <leader>ty :tabnext<CR>
 map <leader>tr :tabprevious<CR>
 nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+map <C-p> :GFiles<CR>
+map <leader>f :Files<CR>
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile "Enable :Prettier command
 command! FormatJSON :execute '%!python -m json.tool' | w  
+
+" Fzf with preview windows (Gfiles for gitfiles, Files for the whole system)
+command! -bang -nargs=? -complete=dir GFiles
+    \ call fzf#vim#gitfiles(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
