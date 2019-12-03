@@ -16,6 +16,7 @@ Plug 'zivyangll/git-blame.vim' "Git blame
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdcommenter' "Multi lines comments support
 
 call plug#end()
 
@@ -51,10 +52,12 @@ let g:closetag_regions = {
     \ } 
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
 let g:user_emmet_leader_key=',' "trigger emmet on double ,, click
-
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 " :h g:incsearch#auto_nohlsearch
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
+
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
 map *  <Plug>(incsearch-nohl-*)
