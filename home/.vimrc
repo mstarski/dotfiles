@@ -6,7 +6,6 @@ Plug 'dense-analysis/ale' "Linter
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Intellisense engine
 Plug 'vim-airline/vim-airline' "This bar at the bottom
 Plug 'joshdick/onedark.vim' "One dark theme
-Plug 'https://github.com/rafaqz/ranger.vim' "Modifications for ranger
 Plug 'https://github.com/alvan/vim-closetag' "Close html tags 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "Markdown preview
 Plug 'mattn/emmet-vim' "html emmet
@@ -17,6 +16,8 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter' "Multi lines comments support
+Plug 'tpope/vim-fugitive' "Git wrapper for vim
+Plug 'scrooloose/nerdtree' "File browser
 
 call plug#end()
 
@@ -40,7 +41,6 @@ let g:ale_linters = {
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ranger_map_keys = 0
 set tabstop=3 " Set how much space on screen tab takes (only visually)
 set shiftwidth=3
 set shell=/bin/zsh "Set default shell for vim
@@ -78,7 +78,7 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
-nmap - :RangerEdit<CR>
+map - :NERDTreeToggle<CR>
 nmap <leader>b :vert sb<CR><C-w>l
 nmap <leader>n :sp<CR><C-w>j
 nmap <leader>q :Prettier<CR>
@@ -92,6 +92,11 @@ map <leader>tr :tabprevious<CR>
 nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 map <C-p> :GFiles<CR>
 map <leader>f :Files<CR>
+map <leader>gb :Gblame<CR>
+map <leader>gd :Gdiff<CR>
+map <leader>gl :0Glog<CR><C-w>j
+map <leader>y "*y
+map <leader>p "*p
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile "Enable :Prettier command
 command! FormatJSON :execute '%!python -m json.tool' | w  

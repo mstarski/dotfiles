@@ -62,6 +62,7 @@ alias arcdu='arc diff --update'
 alias zat='zathura --mode fullscreen'
 alias vim='nvim'
 alias hsh='homeshick'
+alias myfind='find ./** -type f -name'
 
 # Makes ranger change dir to the one we are in when exiting
 function ranger-cd {
