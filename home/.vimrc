@@ -18,6 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter' "Multi lines comments support
 Plug 'tpope/vim-fugitive' "Git wrapper for vim
 Plug 'scrooloose/nerdtree' "File browser
+Plug 'tomasiser/vim-code-dark' "VScode theme
 
 call plug#end()
 
@@ -28,8 +29,10 @@ let g:ale_sign_error = '❌' "Linter signs for error and warnings
 let g:ale_sign_warning = '⚠️'
 "colorscheme onedark "Load onedark scheme
 
-colorscheme gruvbox "Load gruvbox theme
-set background=light
+" colorscheme gruvbox "Load gruvbox theme
+" set background=light
+
+colorscheme codedark
 
 set relativenumber "Sets relative line numbers
 "Ale config
@@ -132,6 +135,10 @@ endfunction
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+
+nmap <silent> gd :sp <C-j><Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
