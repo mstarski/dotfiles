@@ -1,4 +1,4 @@
-"Specify a directory for plugins
+"directory for plugins
 call plug#begin('~/.vim/plugged')
 
 Plug 'sheerun/vim-polyglot' "Syntax highlighting
@@ -61,6 +61,12 @@ let g:NERDSpaceDelims = 1
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
 
+set guifont=Consolas:h30
+
+"Keymap
+nmap <silent> [c <Plug>(ale_previous_wrap)
+nmap <silent> ]c <Plug>(ale_next_wrap) 
+
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
 map *  <Plug>(incsearch-nohl-*)
@@ -68,9 +74,6 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-"Keymap
-nmap <silent> [c <Plug>(ale_previous_wrap)
-nmap <silent> ]c <Plug>(ale_next_wrap) 
 
 " Braces completion
 inoremap " ""<left>

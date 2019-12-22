@@ -1,6 +1,6 @@
 export ZSH="/home/michals/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 plugins=(git zsh-autosuggestions)
 
@@ -9,14 +9,10 @@ source $ZSH/oh-my-zsh.sh
 # Set vim as a default editor
 export EDITOR=nvim
 
-# Span new terminal tab in the current dir (bugfix)
-. /etc/profile.d/vte.sh
-
-# Add ruby gems to the PATH variable
-export PATH=$PATH:/home/michals/.gem/ruby/2.6.0/bin
-
 # Add Scripts dir to the PATH variable
 export PATH=$PATH:/home/michals/Desktop/Scripts
+
+export PATH=$PATH:/home/michals/.local/bin
 
 # Disable loading ranger's default config
 export RANGER_LOAD_DEFAULT_RC="false"
@@ -35,7 +31,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Make things visible for the system
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /usr/share/nvm/init-nvm.sh
 
 # Aliases
 alias gs='git status'
@@ -63,6 +58,7 @@ alias zat='zathura --mode fullscreen'
 alias vim='nvim'
 alias hsh='homeshick'
 alias myfind='find ./** -type f -name'
+alias firefox='.local/firefox-developer-edition/firefox-bin'
 
 # Makes ranger change dir to the one we are in when exiting
 function ranger-cd {
