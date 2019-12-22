@@ -1,5 +1,5 @@
 # dotfiles
-Linux dotfiles that I'm currently using on my machine
+Linux dotfiles and configs that I'm currently using on my machine
 
 ## Currently added dotfiles
 
@@ -7,3 +7,7 @@ Linux dotfiles that I'm currently using on my machine
 * tmux.conf
 * vimrc
 * eslintc.js
+
+### VSCodium
+* settings.json
+* keybindings.json

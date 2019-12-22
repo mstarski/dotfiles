@@ -1,0 +1,19 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "ctrl+shift+alt+w",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "extension.advancedNewFile",
+  },
+  {
+    "key": "ctrl+]",
+    "command":"workbench.action.splitEditorDown"
+  }
+]
