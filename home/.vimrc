@@ -11,7 +11,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } "Markdow
 Plug 'mattn/emmet-vim' "html emmet
 Plug 'haya14busa/incsearch.vim' "incremental search
 Plug 'christoomey/vim-tmux-navigator' "integration with tmux
-Plug 'zivyangll/git-blame.vim' "Git blame
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -21,6 +20,8 @@ Plug 'scrooloose/nerdtree' "File browser
 Plug 'tomasiser/vim-code-dark' "VScode theme
 Plug 'tpope/vim-rails' "Rails support
 Plug 'sainnhe/edge' "Colorscheme
+Plug 'idanarye/vim-merginal' "Git utility
+Plug 'rhysd/git-messenger.vim' "Git blame, but better
 Plug 'ryanoasis/vim-devicons' "File icons
 
 call plug#end()
@@ -54,11 +55,14 @@ let g:ale_linters = {
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-set tabstop=8 
-set expandtab
-set shiftwidth=4
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 set smartindent
+set smarttab
+
 set shell=/bin/zsh "Set default shell for vim
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 let g:closetag_emptyTags_caseSensitive = 1
@@ -108,12 +112,12 @@ map g/ <Plug>(incsearch-stay)
 map <leader>tn :tabnew<CR>
 map <leader>ty :tabnext<CR>
 map <leader>tr :tabprevious<CR>
-nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 map <C-p> :GFiles<CR>
 map <leader>f :Files<CR>
 map <leader>gb :Gblame<CR>
 map <leader>gd :Gdiff<CR>
 map <leader>gl :0Glog<CR><C-w>j
+map <leader>mg :Merginal<CR>
 map <leader>y "*y
 map <leader>p "*p
 map <leader>rg :Rg<CR>
