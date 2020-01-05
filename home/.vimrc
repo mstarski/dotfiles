@@ -19,20 +19,30 @@ Plug 'scrooloose/nerdcommenter' "Multi lines comments support
 Plug 'tpope/vim-fugitive' "Git wrapper for vim
 Plug 'scrooloose/nerdtree' "File browser
 Plug 'tomasiser/vim-code-dark' "VScode theme
+Plug 'tpope/vim-rails' "Rails support
+Plug 'sainnhe/edge' "Colorscheme
+Plug 'ryanoasis/vim-devicons' "File icons
 
 call plug#end()
 
 "Config
+set encoding=UTF-8
 syntax on
 let g:javascript_plugin_jsdoc = 1 "Enables syntax highlighting for JSDocs
 let g:ale_sign_error = '❌' "Linter signs for error and warnings 
 let g:ale_sign_warning = '⚠️'
-"colorscheme onedark "Load onedark scheme
+" colorscheme onedark "Load onedark scheme
 
 " colorscheme gruvbox "Load gruvbox theme
 " set background=light
 
-colorscheme codedark
+"colorscheme codedark
+
+set termguicolors  " Make colors look better in terminal
+let g:edge_style = 'neon'
+let g:edge_disable_italic_comment = 1
+set background=dark
+colorscheme edge
 
 set relativenumber "Sets relative line numbers
 "Ale config
@@ -44,8 +54,11 @@ let g:ale_linters = {
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-set tabstop=3 " Set how much space on screen tab takes (only visually)
-set shiftwidth=3
+set tabstop=8 
+set expandtab
+set shiftwidth=4
+set autoindent
+set smartindent
 set shell=/bin/zsh "Set default shell for vim
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 let g:closetag_emptyTags_caseSensitive = 1
@@ -103,6 +116,12 @@ map <leader>gd :Gdiff<CR>
 map <leader>gl :0Glog<CR><C-w>j
 map <leader>y "*y
 map <leader>p "*p
+map <leader>rg :Rg<CR>
+
+" Rails
+map <leader>ev :Eview<CR>
+map <leader>ec :Econtroller<CR>
+map <leader>em :Emodel<CR>
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile "Enable :Prettier command
 command! FormatJSON :execute '%!python -m json.tool' | w  
@@ -159,6 +178,9 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Integrated terminal
+" Fzf ripgrep integration
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
 
-set termguicolors  " Make colors look better in terminal

@@ -23,10 +23,16 @@ export PATH=~/.npm-global/bin:$PATH
 # Make homeshick command visible to the system
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
+# Add snap to the path variable
+export PATH=$PATH:/snap/bin
+
 # Enable vi mode in zsh
 bindkey -v
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add Arcanist to the path variable
+export PATH="$PATH:/home/michals/.local/arcanist/arcanist/bin/"
 
 # Make things visible for the system
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -59,6 +65,7 @@ alias vim='nvim'
 alias hsh='homeshick'
 alias myfind='find ./** -type f -name'
 alias firefox='.local/firefox-developer-edition/firefox-bin'
+alias poweroff='systemctl poweroff'
 
 # Makes ranger change dir to the one we are in when exiting
 function ranger-cd {
