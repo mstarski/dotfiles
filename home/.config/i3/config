@@ -22,7 +22,7 @@ floating_modifier $mod
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -font "System San Francisco Display 14" -opacity "85" -bg "#1E1E1E" -bc "#1E1E1E" -fg "#ffffff"
+bindsym $mod+d exec ~/Desktop/Scripts/rofi.sh 
 
 # change focus
 bindsym $mod+j focus down

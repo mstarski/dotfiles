@@ -121,6 +121,7 @@ map <leader>mg :Merginal<CR>
 map <leader>y "*y
 map <leader>p "*p
 map <leader>rg :Rg<CR>
+map <leader>gg :GGrep<CR>
 
 " Rails
 map <leader>ev :Eview<CR>
@@ -188,3 +189,8 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
+" Fzf git grep
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)

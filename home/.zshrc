@@ -66,6 +66,7 @@ alias hsh='homeshick'
 alias myfind='find ./** -type f -name'
 alias firefox='.local/firefox-developer-edition/firefox-bin'
 alias poweroff='systemctl poweroff'
+alias reboot='systemctl reboot'
 
 # Makes ranger change dir to the one we are in when exiting
 function ranger-cd {
