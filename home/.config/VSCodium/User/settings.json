@@ -17,5 +17,5 @@
     "ruby.format": "rubocop", // use rubocop for formatting,
     "workbench.editor.enablePreview": false,
     "editor.lineNumbers": "relative",
-    "window.zoomLevel": 0
+    "window.menuBarVisibility": "toggle"
 }

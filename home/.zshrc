@@ -9,6 +9,9 @@ source $ZSH/oh-my-zsh.sh
 # Set vim as a default editor
 export EDITOR=nvim
 
+# Chromium binary
+export CHROME_BIN=/usr/bin/chromium
+
 # Add Scripts dir to the PATH variable
 export PATH=$PATH:/home/michals/Desktop/Scripts
 
@@ -64,9 +67,12 @@ alias zat='zathura --mode fullscreen'
 alias vim='nvim'
 alias hsh='homeshick'
 alias myfind='find ./** -type f -name'
-alias firefox='.local/firefox-developer-edition/firefox-bin'
 alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
+alias vimc='vim ~/.vimrc'
+alias zshc='vim ~/.zshrc'
+alias i3c='vim ~/.config/i3/config'
+alias pbc='vim ~/.config/polybar/config'
 
 # Makes ranger change dir to the one we are in when exiting
 function ranger-cd {

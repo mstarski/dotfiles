@@ -18,12 +18,12 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #2f343f
-background-alt = #444
+background = #fff
+background-alt = #fafafa
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = #000
 foreground-alt = #555
-primary = #ffb52a
+primary = #1890ff 
 secondary = #e60053
 alert = #bd2c40
 
@@ -31,11 +31,11 @@ alert = #bd2c40
 enable-ipc = true
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 45
+height = 55
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 6.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -52,14 +52,14 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=14;1
+font-0 = System\ San\ Francisco\ Display:size=16;1
 font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
-font-2 = siji:pixelsize=14;1
-font-3 = Weather Icons:size=14;1
-font-4 = System San Francisco Display=14;1
+font-2 = siji:pixelsize=16;1
+font-3 = Weather Icons:size=16;1
+font-4 = Font\ Awesome:size=16;1
 
 modules-left = i3 player-mpris-tail
-modules-center = date openweathermap-fullfeatured 
+modules-center = la4 date openweathermap-fullfeatured 
 modules-right = pulseaudio memory cpu battery wlan powermenu
 
 ;tray-position = right
@@ -79,6 +79,7 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+label-font = 4
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
@@ -117,7 +118,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
-label = %percentage:2%%
+label = "CPU: %percentage:2%%"
 
 [module/memory]
 type = internal/memory
@@ -125,7 +126,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
-label = %percentage_used%%
+label = "MEM: %percentage_used%%"
 
 [module/wlan]
 type = internal/network
@@ -136,7 +137,7 @@ format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
 label-connected = %essid%
 
-format-disconnected =
+format-disconnected = "no internect connection"
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
@@ -281,7 +282,7 @@ menu-2-1-exec = menu-open-0
 
 [module/player-mpris-tail]
 type = custom/script
-exec = ~/Desktop/Scripts/player-mpris-tail.py -f '{icon} {:artist:t18:{artist}:}{:artist: - :}{:t20:{title}:}  %{A1:~/Desktop/Scripts/player-mpris-tail.py previous:} ⏮ %{A} %{A1:~/Desktop/Scripts/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:~/Desktop/Scripts/player-mpris-tail.py next:} ⏭ %{A}'
+exec = ~/Desktop/Scripts/player-mpris-tail.py -f '{:artist:t18:{artist}:}{:artist: - :}{:t20:{title}:}  %{A1:~/Desktop/Scripts/player-mpris-tail.py previous:} ⏮ %{A} %{A1:~/Desktop/Scripts/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:~/Desktop/Scripts/player-mpris-tail.py next:} ⏭ %{A}'
 tail = true
 
 [settings]

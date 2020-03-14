@@ -23,6 +23,8 @@ Plug 'sainnhe/edge' "Colorscheme
 Plug 'idanarye/vim-merginal' "Git utility
 Plug 'rhysd/git-messenger.vim' "Git blame, but better
 Plug 'ryanoasis/vim-devicons' "File icons
+Plug 'Yggdroot/indentLine' "Indent lines
+Plug 'heavenshell/vim-jsdoc' "JSDocs
 
 call plug#end()
 
@@ -37,13 +39,13 @@ let g:ale_sign_warning = '⚠️'
 " colorscheme gruvbox "Load gruvbox theme
 " set background=light
 
-"colorscheme codedark
+colorscheme codedark
 
 set termguicolors  " Make colors look better in terminal
-let g:edge_style = 'neon'
-let g:edge_disable_italic_comment = 1
-set background=dark
-colorscheme edge
+" let g:edge_style = 'neon'
+" let g:edge_disable_italic_comment = 1
+" set background=dark
+" colorscheme edge
 
 set relativenumber "Sets relative line numbers
 "Ale config
@@ -56,12 +58,9 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
-set tabstop=2
 set shiftwidth=2
-set softtabstop=2
+set tabstop=2
 set autoindent
-set smartindent
-set smarttab
 
 set shell=/bin/zsh "Set default shell for vim
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
@@ -156,8 +155,8 @@ endif
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
@@ -168,9 +167,9 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<Tab>" :
+			\ coc#refresh()
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -194,3 +193,8 @@ command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+" Check highlighting group (For coloscheme creation purposes)
+map <leader>hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
