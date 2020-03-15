@@ -5,6 +5,10 @@ ZSH_THEME="agnoster"
 plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+
+# Add snap to the path variable
+export PATH=$PATH:/snap/bin
 
 # Set vim as a default editor
 export EDITOR=nvim
@@ -26,11 +30,9 @@ export PATH=~/.npm-global/bin:$PATH
 # Make homeshick command visible to the system
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
-# Add snap to the path variable
-export PATH=$PATH:/snap/bin
-
 # Enable vi mode in zsh
 bindkey -v
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
