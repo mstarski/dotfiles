@@ -39,6 +39,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add Arcanist to the path variable
 export PATH="$PATH:/home/michals/.local/arcanist/arcanist/bin/"
 
+# Add yarn gloabls to the path
+export PATH="$PATH:`yarn global bin`"
+
 # Make things visible for the system
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -91,10 +94,16 @@ function ranger-cd {
 # Open ranger on ctrl+o (ranger-cd means that it'll change dir when closed)
 bindkey -s '^O' 'ranger-cd\n'
 
+bindkey -s '^P' 'my_fzf\n'
+
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
         /usr/bin/ranger "$@"
     else
         exit
     fi
+}
+
+my_fzf() {
+	cd $(find -L /home/michals \( -path '*/\.*' -o -path '/**/node_modules' -o -fstype 'dev' -o -fstype 'proc' \) -prune -o -type d -print 2> /dev/null | sed 1d | cut -b1- | fzf --preview 'bat --style=numbers --color=always {} | head -500' +m)
 }
