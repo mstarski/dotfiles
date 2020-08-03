@@ -1,44 +1,53 @@
-// Place your key bindings in this file to override the defaultsauto[]
+// Place your key bindings in this file to override the defaults
 [
   {
     "key": "ctrl+n",
-    "command": "extension.advancedNewFile",
+    "command": "extension.advancedNewFile"
   },
   {
     "key": "ctrl+]",
-    "command":"workbench.action.splitEditorDown"
+    "command": "workbench.action.splitEditorDown"
   },
   {
     "key": "alt+f",
     "command": "workbench.action.toggleMaximizedPanel"
   },
   // Toggle between terminal and editor focus
-  { "key": "ctrl+`", "command": "workbench.action.terminal.focus"},
   {
-    "key": "ctrl+`",
-    "command": "workbench.action.focusActiveEditorGroup",
+    "key": "ctrl+'",
+    "command": "workbench.explorer.fileView.focus"
+  },
+  {
+    "key": "ctrl+;",
+    "command": "workbench.action.closeEditorsInGroup"
+  },
+  {
+    "key": "ctrl+shift+down",
+    "command": "workbench.action.terminal.focusNextPane",
     "when": "terminalFocus"
   },
   {
-    "key": "ctrl+shift+w",
-    "command": "-workbench.action.closeWindow"
+    "key": "ctrl+shift+up",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
   },
   {
-    "key": "ctrl+shift+w",
-    "command": "workbench.action.closeWindow",
-    "when": "!editorIsOpen && !multipleEditorGroups"
+    "key": "alt+a",
+    "command": "editor.action.changeAll",
+    "when": "editorTextFocus && editorTextFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+w",
-    "command": "-workbench.action.closeWindow",
-    "when": "!editorIsOpen && !multipleEditorGroups"
+    "key": "ctrl+o",
+    "command": "workbench.action.toggleSidebarVisibility"
   },
   {
-    "key": "ctrl+shift+w",
-    "command": "workbench.action.closeActiveEditor"
+    "key": "ctrl+g",
+    "command": "workbench.view.scm",
+    "when": "gitlens:enabled && config.gitlens.keymap == 'chorded'"
   },
   {
-    "key": "ctrl+w",
-    "command": "-workbench.action.closeActiveEditor"
+    "key": "ctrl+shift+g g",
+    "command": "-workbench.view.scm",
+    "when": "gitlens:enabled && config.gitlens.keymap == 'chorded'"
   }
 ]

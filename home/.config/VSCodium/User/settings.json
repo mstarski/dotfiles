@@ -1,26 +1,73 @@
 {
-    "editor.minimap.enabled": false,
-    "terminal.integrated.fontFamily": "MesloLGS Nerd Font",
-    "workbench.iconTheme": "file-icons",
-    "workbench.startupEditor": "newUntitledFile",
-    "editor.fontFamily": "'Consolas', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "ruby.useBundler": true, //run non-lint commands with bundle exec
-    "ruby.useLanguageServer": true, // use the internal language server (see below)
-    "ruby.lint": {
-        "rubocop": {
-            "useBundler": true // enable rubocop via bundler
-        },
-        "reek": {
-            "useBundler": true // enable reek via bundler
-        }
+  "editor.minimap.enabled": false,
+  "terminal.integrated.fontFamily": "MesloLGS Nerd Font",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.fontFamily": "'JetBrains Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.lineNumbers": "relative",
+  "window.menuBarVisibility": "toggle",
+  "terminal.external.linuxExec": "xfce4-terminal",
+  "git.enableSmartCommit": true,
+  "blade.format.enable": true,
+  "editor.formatOnSave": true,
+  "explorer.openEditors.visible": 0,
+  "workbench.editor.showTabs": false,
+  "workbench.activityBar.visible": false,
+  "gitlens.advanced.telemetry.enabled": false,
+  "update.mode": "none",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.hideCursorInOverviewRuler": true,
+  "files.exclude": {
+    "**/node_modules": true // this excludes all folders
+    // named "node_modules" from
+    // the explore tree
+  },
+  "workbench.colorCustomizations": {
+    "terminal.foreground": "#00FD61",
+    "terminal.background": "#383737",
+    "statusBar.background": "#630bb6"
+  },
+  "editor.fontWeight": "400",
+  "stylelint.packageManager": "yarn",
+  "workbench.panel.defaultLocation": "right",
+  "window.zoomLevel": 0,
+  "emmet.includeLanguages": { "HTML (Eex)": "html" },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [":"],
+      "commands": ["workbench.action.showCommands"]
     },
-    "ruby.format": "rubocop", // use rubocop for formatting,
-    "workbench.editor.enablePreview": true,
-    "editor.lineNumbers": "relative",
-    "window.menuBarVisibility": "toggle",
-    "window.zoomLevel": 1,
-    "terminal.external.linuxExec": "xfce4-terminal",
-    "git.enableSmartCommit": true,
-    "blade.format.enable": true,
-    "editor.formatOnSave": true
+    {
+      "before": ["g", "r"],
+      "commands": ["references-view.find"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["Z", "Z"],
+      "commands": [":wq"]
+    },
+    {
+      "before": ["F"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<C-o>"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<C-g>"],
+      "commands": ["workbench.view.scm"]
+    }
+  ]
 }

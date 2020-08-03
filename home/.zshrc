@@ -30,6 +30,12 @@ export PATH=~/.npm-global/bin:$PATH
 # Make homeshick command visible to the system
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
+# Make nvm visible to the system
+source /usr/share/nvm/init-nvm.sh
+
+# Composer global
+export PATH=$PATH:/home/michals/.config/composer/vendor/bin
+
 # Enable vi mode in zsh
 bindkey -v
 
@@ -78,6 +84,7 @@ alias vimc='vim ~/.vimrc'
 alias zshc='vim ~/.zshrc'
 alias i3c='vim ~/.config/i3/config'
 alias pbc='vim ~/.config/polybar/config'
+alias v='vim'
 
 # Makes ranger change dir to the one we are in when exiting
 function ranger-cd {
@@ -107,3 +114,4 @@ ranger() {
 my_fzf() {
 	cd $(find -L /home/michals \( -path '*/\.*' -o -path '/**/node_modules' -o -fstype 'dev' -o -fstype 'proc' \) -prune -o -type d -print 2> /dev/null | sed 1d | cut -b1- | fzf --preview 'bat --style=numbers --color=always {} | head -500' +m)
 }
+

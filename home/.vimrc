@@ -25,6 +25,7 @@ Plug 'rhysd/git-messenger.vim' "Git blame, but better
 Plug 'ryanoasis/vim-devicons' "File icons
 Plug 'Yggdroot/indentLine' "Indent lines
 Plug 'heavenshell/vim-jsdoc' "JSDocs
+Plug 'ntpeters/vim-better-whitespace' "Hl trailing whitspaces
 
 call plug#end()
 
@@ -32,8 +33,10 @@ call plug#end()
 set encoding=UTF-8
 syntax on
 let g:javascript_plugin_jsdoc = 1 "Enables syntax highlighting for JSDocs
-let g:ale_sign_error = '❌' "Linter signs for error and warnings 
+let g:ale_sign_error = '❌' "Linter signs for error and warnings
 let g:ale_sign_warning = '⚠️'
+let g:seiya_auto_enable=1
+set nowrap
 " colorscheme onedark "Load onedark scheme
 
 " colorscheme gruvbox "Load gruvbox theme
@@ -68,7 +71,7 @@ let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_regions = {
     \ 'typescript.tsx': 'jsxRegion,tsxRegion',
     \ 'javascript.jsx': 'jsxRegion',
-    \ } 
+    \ }
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
 let g:user_emmet_leader_key=',' "trigger emmet on double ,, click
 " Add spaces after comment delimiters by default
@@ -116,7 +119,7 @@ map <leader>f :Files<CR>
 map <leader>gb :Gblame<CR>
 map <leader>gd :Gdiff<CR>
 map <leader>gl :0Glog<CR><C-w>j
-map <leader>mg :Merginal<CR>
+map <leader>mg :MerginalToggle<CR>
 map <leader>y "*y
 map <leader>p "*p
 map <leader>rg :Rg<CR>
@@ -162,7 +165,7 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-nmap <silent> gd :sp <C-j><Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
