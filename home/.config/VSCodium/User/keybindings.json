@@ -49,5 +49,9 @@
     "key": "ctrl+shift+g g",
     "command": "-workbench.view.scm",
     "when": "gitlens:enabled && config.gitlens.keymap == 'chorded'"
+  },
+  {
+    "key": "\\ d",
+    "command": "editor.emmet.action.matchTag"
   }
 ]

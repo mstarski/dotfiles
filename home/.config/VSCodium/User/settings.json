@@ -26,12 +26,12 @@
   "workbench.colorCustomizations": {
     "terminal.foreground": "#00FD61",
     "terminal.background": "#383737",
-    "statusBar.background": "#630bb6"
+    "statusBar.background": "#68217a"
   },
   "editor.fontWeight": "400",
   "stylelint.packageManager": "yarn",
   "workbench.panel.defaultLocation": "right",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
   "emmet.includeLanguages": { "HTML (Eex)": "html" },
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
