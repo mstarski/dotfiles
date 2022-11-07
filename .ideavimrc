@@ -1,0 +1,45 @@
+""" Map leader to space ---------------------
+let mapleader=" "
+
+set relativenumber
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+set surround
+set easymotion
+
+" Show a few lines of context around the cursor.  Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+map <leader>\ <Action>(SplitVertically)<C-w>l
+map <leader>' <Action>(SplitHorizontally)<C-w>j
+map <leader>rn <Action>(RefactoringMenu)
+map <S-A-J> <Action>(MoveLineDown)
+map <S-A-K> <Action>(MoveLineUp)
+map <leader>re <Action>(Replace)
+map <leader>sf <Action>(FindInPath)
+map <tab> <Action>(Forward)
+map <S-TAB> <Action>(Back)
+map <leader>gb <Action>(Git.Branches)
+map <leader>n <Action>(ShowNpmScripts)
+map <leader>se <Action>(SearchEverywhere)
+map <leader>gm <Action>(Annotate)
+map , <Plug>(easymotion-prefix)
+
+" Better window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Plugins' settings
+let g:EasyMotion_override_acejump = 0
+
+" Disable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
