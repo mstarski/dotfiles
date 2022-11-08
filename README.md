@@ -7,6 +7,7 @@ Dotfiles and configs that I'm using on my machines
 * tmux.conf
 * vimrc
 * eslintc.js
+* fish
 
 ### Jetbrains
 * .ideavimrc
